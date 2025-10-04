@@ -1,0 +1,119 @@
+.state-info {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  width: 280px;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.state-info-header {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.state-info-title {
+  font-weight: 700;
+}
+
+.state-info-subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+.state-info-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.state-info-body {
+  padding: 12px;
+}
+
+.state-info-section {
+  margin-bottom: 8px;
+}
+
+.state-info-label {
+  font-size: 12px;
+  color: #999;
+}
+
+.state-info-value {
+  font-weight: 600;
+}
+
+.state-info-action {
+  margin-top: 8px;
+}
+
+.state-info-button {
+  width: 100%;
+  padding: 8px 10px;
+  background: #2b7a78;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.state-info-button:hover {
+  background: #236967;
+}
+
+/* Стили для компактного режима (в списке) */
+.state-list-expanded {
+  padding: 16px;
+  background: rgba(255, 102, 0, 0.05);
+  border-left: 4px solid #ff6600;
+  border-bottom: 1px solid #e9ecef;
+  animation: expand 0.3s ease-out;
+}
+
+.state-list-info-section {
+  margin-bottom: 8px;
+}
+
+.state-list-info-label {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 2px;
+}
+
+.state-list-info-value {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.state-list-hint {
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+}
+
+@keyframes expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
