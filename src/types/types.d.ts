@@ -1,4 +1,3 @@
-import { IState } from './types';
 export interface IProperties {
     name: string,
     foundation: string,

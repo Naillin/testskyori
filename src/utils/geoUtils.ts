@@ -1,5 +1,4 @@
 import type { IState } from "../types/types";
-import { useMemo } from "react";
 
 /**
  * Вспомогательные типы для возврата, удобные для Leaflet:
@@ -95,17 +94,13 @@ export function getFeatureCentroid(feature: IState): [number, number] | null {
 }
 
 export function convertToGeoJSON(features: IState[]) {
-  const geoJsonData = useMemo(() => {
-      return {
-        type: "FeatureCollection" as const,
-        features: features.map(feature => ({
-          type: "Feature" as const,
-          id: feature.id,
-          properties: feature.properties,
-          geometry: feature.geometry
-        }))
-      };
-    }, [features]);
-
-    return geoJsonData;
+  return {
+    type: "FeatureCollection" as const,
+    features: features.map(feature => ({
+      type: "Feature" as const,
+      id: feature.id,
+      properties: feature.properties,
+      geometry: feature.geometry
+    }))
+  };
 }

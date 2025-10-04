@@ -66,7 +66,7 @@ const MapFeatures: React.FC<MapProps> = ({ features, selectedId, onSelect }) => 
   }, [selectedId, style, selectedStyle, onSelect, map]);
 
   // FeatureCollection
-  const geoJsonData = convertToGeoJSON(features);
+  const geoJsonData = useMemo(() => convertToGeoJSON(features), [features]);
 
   if (!features.length) return null;
 
