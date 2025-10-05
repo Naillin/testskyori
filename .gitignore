@@ -4,6 +4,7 @@
 .packignore
 Packer.exe
 pack.txt
+dataset-poly_test.json
 
 # Logs
 logs
