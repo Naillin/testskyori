@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import type { IState } from "../../types/types";
 import { useMap } from "react-leaflet";
 import { getFeatureCentroid } from "../../utils/geoUtils";
+import type { MapProps } from "./MapComponent";
 
-// Компонент для управления центрированием карты
-const MapController: React.FC<{
-  selectedId: string | null;
-  features: IState[]
-}> = ({ 
-  selectedId, 
-  features 
+/**
+ * Компонент управления картой
+ * Отвечает за автоматическое центрирование карты при выборе штата
+ */
+const MapController: React.FC<MapProps> = ({ 
+  features,
+  selectedId 
 }) => {
   const map = useMap();
 

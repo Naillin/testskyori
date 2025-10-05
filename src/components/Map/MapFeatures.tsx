@@ -1,17 +1,18 @@
 import { GeoJSON, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useMemo } from "react";
-import type { IState } from "../../types/types";
+import type { MapProps } from "./MapComponent";
 import { getFeatureCentroid, convertToGeoJSON } from "../../utils/geoUtils"
 
-export interface MapProps {
-  features: IState[];
-  selectedId: string | null;
-  onSelect: (id: string | null) => void;
-};
-
-// Компонент для отображения GeoJSON
-const MapFeatures: React.FC<MapProps> = ({ features, selectedId, onSelect }) => {
+/**
+ * Компонент отображения гео-объектов на карте
+ * Рендерит полигоны штатов и обрабатывает взаимодействия
+ */
+const MapFeatures: React.FC<MapProps> = ({
+  features,
+  selectedId,
+  onSelect
+}) => {
   const map = useMap();
 
   // Стили для GeoJSON

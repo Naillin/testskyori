@@ -10,6 +10,10 @@ interface Props {
   onClearSelection: () => void;
 }
 
+/**
+ * Компонент панели легенды/списка штатов
+ * Отображает список штатов с поиском и возможностью выбора
+ */
 const LegendPanel: React.FC<Props> = ({
   sortedFeatures, 
   selectedId, 

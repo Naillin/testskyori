@@ -14,6 +14,10 @@ export interface UseSelectionResult {
   setHoveredId: (id: string | null) => void;
 }
 
+/**
+ * Хук для управления состоянием выбора
+ * Управляет выбранным штатом, предоставляет методы для изменения выбора
+ */
 export function useSelection(initialId: string | null = null): UseSelectionResult {
   const [selectedId, setSelectedId] = useState<string | null>(initialId);
   const [selectedFeature, setSelectedFeature] = useState<IState | null>(null);

@@ -10,6 +10,10 @@ interface Props {
   onClick?: () => void;
 }
 
+/**
+ * Компонент элемента списка штатов
+ * Отображает отдельный штат в списке с основной информацией
+ */
 const StateListItem: React.FC<Props> = ({
   feature, 
   isSelected, 

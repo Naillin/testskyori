@@ -6,7 +6,9 @@ import type { IState } from "../types/types";
  */
 
 /**
- * Собирает все координаты (плоский массив [lng, lat]) для Polygon или MultiPolygon.
+ * Преобразует координаты фичи в плоский массив
+ * @param feature - геообъект штата
+ * @returns массив координат [lng, lat]
  */
 function flattenCoordinates(feature: IState): Array<[number, number]> {
   const geom = feature.geometry;
@@ -40,8 +42,9 @@ function flattenCoordinates(feature: IState): Array<[number, number]> {
 }
 
 /**
- * Возвращает границы фичи в формате [[southWestLat, southWestLng], [northEastLat, northEastLng]]
- * Подходит передать в map.fitBounds(bounds).
+ * Вычисляет границы фичи для отображения на карте
+ * @param feature - геообъект штата
+ * @returns границы в формате Leaflet [[southWest, northEast]]
  */
 export function getFeatureBounds(feature: IState): [[number, number], [number, number]] | null {
   const pts = flattenCoordinates(feature);
@@ -68,8 +71,9 @@ export function getFeatureBounds(feature: IState): [[number, number], [number, n
 }
 
 /**
- * Примерный центроид — арифметическое среднее всех вершин (lng,lat -> возвращаем [lat, lng]).
- * Для крупных многоугольников это приближённый центр, но обычно подходит для центрирования и popup.
+ * Вычисляет центроид (геометрический центр) фичи
+ * @param feature - геообъект штата
+ * @returns координаты центра [lat, lng]
  */
 export function getFeatureCentroid(feature: IState): [number, number] | null {
   const pts = flattenCoordinates(feature);
@@ -93,6 +97,11 @@ export function getFeatureCentroid(feature: IState): [number, number] | null {
   return [avgLat, avgLng]; // [lat, lng]
 }
 
+/**
+ * Конвертирует массив фич в формат GeoJSON FeatureCollection
+ * @param features - массив геообъектов
+ * @returns объект в формате GeoJSON
+ */
 export function convertToGeoJSON(features: IState[]) {
   return {
     type: "FeatureCollection" as const,

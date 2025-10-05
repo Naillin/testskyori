@@ -4,6 +4,10 @@ import { useGeoJson } from "./hooks/useGeoJson";
 import { useSelection } from "./hooks/useSelection";
 import './App.css';
 
+/**
+ * Главный компонент приложения
+ * Связывает карту и панель легенды, управляет состоянием выбора
+ */
 function App() {
   const { features, sortedFeatures } = useGeoJson();
   const selection = useSelection(null);

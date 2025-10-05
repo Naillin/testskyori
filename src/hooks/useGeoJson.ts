@@ -12,8 +12,9 @@ export interface UseGeoJsonResult {
 }
 
 /**
- * useGeoJson
- * Загружает GeoJSON, фильтрует некорректные фичи, memoize-ит результаты.
+ * Хук для работы с GeoJSON данными
+ * Загружает, фильтрует и сортирует данные о штатах
+ * Предоставляет методы для доступа к данным
  */
 export function useGeoJson(): UseGeoJsonResult {
   const [features, setFeatures] = useState<IState[]>([]);

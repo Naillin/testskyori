@@ -6,6 +6,10 @@ interface Props {
   feature: IState | null;
 }
 
+/**
+ * Компонент отображения расширенной информации о штате
+ * Показывает детальную информацию при выборе штата
+ */
 const StateInfo: React.FC<Props> = ({
   feature
 }) => {
