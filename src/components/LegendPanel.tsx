@@ -44,6 +44,12 @@ const LegendPanel: React.FC<Props> = ({
     }
   }, [selectedId, filtered]);
 
+  //Сброс фильтра и выбора
+  const handleClearSelection = () => {
+    setQuery("");
+    onClearSelection();
+  };
+
   return (
     <div className="legend-panel">
       <div className="legend-header">
@@ -58,7 +64,7 @@ const LegendPanel: React.FC<Props> = ({
         {selectedId && (
           <button 
             className="legend-clear-button"
-            onClick={onClearSelection}
+            onClick={handleClearSelection}
           >
             Сбросить выбор
           </button>
